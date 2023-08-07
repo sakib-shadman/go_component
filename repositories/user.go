@@ -11,8 +11,9 @@ type userRepo struct {
 	db *gorm.DB
 }
 
+// CreateUser implements domain.IUserRepo
 func (repo *userRepo) CreateUser(user models.User) {
-
+	panic("unimplemented")
 }
 
 func UserDBInstance(d *gorm.DB) domain.IUserRepo {
