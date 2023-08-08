@@ -1,14 +1,21 @@
 package container
 
 import (
+	"fmt"
 	"go_user/config"
 	"go_user/connection"
 	"go_user/controllers"
 	"go_user/repositories"
+	"go_user/routes"
 	"go_user/service"
+	"log"
+
+	"github.com/labstack/echo/v4"
 )
 
 func Serve() {
+
+	e := echo.New()
 
 	config.SetConfig()
 
@@ -20,7 +27,7 @@ func Serve() {
 
 	controllers.SetUserService(userService)
 
-	//routes.UserR(e)
+	routes.UserRoutes(e)
 
-	//log.Fatal(e.Start(fmt.Sprintf(":%s", config.LocalConfig.Port)))
+	log.Fatal(e.Start(fmt.Sprintf(":%s", config.LocalConfig.Port)))
 }

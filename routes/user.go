@@ -1,7 +1,12 @@
 package routes
 
-import "github.com/labstack/echo/v4"
+import (
+	"go_user/controllers"
 
-func userRoutes(e *echo.Echo) {
+	"github.com/labstack/echo/v4"
+)
+
+func UserRoutes(e *echo.Echo) {
 	users := e.Group("/users")
+	users.POST("/create-user", controllers.CreateUser)
 }
