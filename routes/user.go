@@ -9,4 +9,5 @@ import (
 func UserRoutes(e *echo.Echo) {
 	users := e.Group("/users")
 	users.POST("/create-user", controllers.CreateUser)
+	users.POST("/log-request", controllers.LogRequest)
 }

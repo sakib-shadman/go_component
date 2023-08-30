@@ -1,10 +1,12 @@
 package controllers
 
 import (
+	"fmt"
 	"go_user/domain"
 	"go_user/models"
 	"go_user/types"
 	"net/http"
+	"time"
 
 	"github.com/labstack/echo/v4"
 )
@@ -39,4 +41,9 @@ func CreateUser(e echo.Context) error {
 	}
 	return e.JSON(http.StatusCreated, "User was created successfully")
 
+}
+
+func LogRequest(e echo.Context) error {
+	fmt.Println("The current time is:", time.Now())
+	return e.JSON(http.StatusCreated, "User was created successfully")
 }
